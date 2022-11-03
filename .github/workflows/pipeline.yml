@@ -1,0 +1,26 @@
+name: Pass AWS Credentials to Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  get-pass-aws-credentials:
+    name: Get AWS Credentials and Pass to Docker
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACC_NO }}:role/aws-creds-docker-poc
+          role-duration-seconds: 60
+          aws-region: eu-central-1
+
+      - name: echo env
+        run: env

@@ -1,0 +1,1 @@
+# aws-creds-docker-poc
