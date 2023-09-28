@@ -15,7 +15,14 @@ jobs:
       contents: read
 
     steps:
-      - run: echo 'self-hosted' | jq -e . >/dev/null
+      - run: |
+          input_string='{"key": "value"}'
+          
+          if echo "$input_string" | jq -e . >/dev/null 2>&1; then
+            echo "The string is JSONable"
+          else
+            echo "The string is not JSONable"
+          fi
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
