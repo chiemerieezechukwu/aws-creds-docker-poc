@@ -15,7 +15,7 @@ jobs:
       contents: read
 
     steps:
-      - run: echo ${{ fromJson('["self-hosted"]') }}
+      - run: echo ${{ fromJson('self-hosted') }}
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
