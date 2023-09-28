@@ -44,4 +44,4 @@ jobs:
       - name: Run AWS CLI w/o credentials
         run: |
           docker run --rm amazon/aws-cli sts get-caller-identity
-      - run: echo ${{ fromJson("['testing']") }}
+      - run: echo ${{ fromJson(['testing']) }}
