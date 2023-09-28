@@ -17,8 +17,9 @@ jobs:
     steps:
       - run: |
           input_string='{"key": "value"}'
+          input_stringg='Hello'
           
-          if echo "$input_string" | jq -e . >/dev/null 2>&1; then
+          if echo "$input_stringg" | jq -e . >/dev/null 2>&1; then
             echo "The string is JSONable"
           else
             echo "The string is not JSONable"
