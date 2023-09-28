@@ -15,7 +15,7 @@ jobs:
       contents: read
 
     steps:
-      - run: echo 'self-hosted' | jq
+      - run: echo 'self-hosted' | jq -e
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
